@@ -1,5 +1,4 @@
-from socketIO_client import SocketIO, LoggingNamespace,SocketIONamespace, TRANSPORTS
-
+from socketIO_client_nexus import SocketIO, LoggingNamespace,SocketIONamespace, TRANSPORTS
 
 class SpacebroClient(SocketIO):
   def __init__(

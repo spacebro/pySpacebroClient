@@ -76,7 +76,7 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
-        'socketIO-client>=0.7.2'
+        'socketIO-client-nexus>=0.7.5'
     ],
 
     # List additional groups of dependencies here (e.g. development

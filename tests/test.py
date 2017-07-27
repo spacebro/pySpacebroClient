@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/env python
 import unittest
 import sys, os
@@ -104,8 +102,7 @@ class TestSpacebroClient(unittest.TestCase):
         spacebroClient.on(settings['in'].inMedia.eventName, self.on_inMedia)
         spacebroClient.wait(seconds=timeout)
         spacebroClient.emit(settings.out.outMedia.eventName, {'value': 5})
-        #spacebroClient.wait(seconds=timeout)
-        spacebroClient.wait()
+        spacebroClient.wait(seconds=timeout)
 
         self.assertEqual(DotMap(self.inMediaValue).value, 5)
         spacebroClient.disconnect()
