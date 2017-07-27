@@ -3,7 +3,7 @@ pySpacebroClient
 
 🌟 Connect easily to a [spacebro server](https://github.com/spacebro/spacebro).
 
-a port of nodejs `spacebro-client <https://github.com/soixantecircuits/spacebro-client/>`_
+a port of nodejs `spacebro-client <https://github.com/spacebro/spacebro-client/>`_
 
 
 Why

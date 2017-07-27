@@ -29,7 +29,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/soixantecircuits/pySpacebroClient',
+    url='https://github.com/spacebro/pySpacebroClient',
 
     # Author details
     author='Soixante circuits',
