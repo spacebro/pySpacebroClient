@@ -73,35 +73,34 @@ class TestSpacebroClient(unittest.TestCase):
             'host': 'localhost',
             'port': 36000,
             'client': {
-                'name': 'python-bro'
+                'name': 'python-bro',
+                'in': {
+                    'inMedia': {
+                        'eventName': 'inMedia',
+                        'description': 'Input media',
+                        'type': 'all'
+                    }
+                },
+                'out': {
+                    'outMedia': {
+                        'eventName': 'outMedia',
+                        'description': 'Output media',
+                        'type': 'all'
+                    }
+                }
             },
             'channelName': 'media-stream3',
             'verbose': verbose,
             'connection': [ 'python-bro/outMedia => python-bro/inMedia',
                             'python-bro/outMedia => etna/inMedia'
-                          ],
-            'in': {
-                'inMedia': {
-                    'eventName': 'inMedia',
-                    'description': 'Input media',
-                    'type': 'all'
-                }
-            },
-            'out': {
-                'outMedia': {
-                    'eventName': 'outMedia',
-                    'description': 'Output media',
-                    'type': 'all'
-                }
-            }
-
+                          ]
         })
         spacebroClient = SpacebroClient(settings.toDict())
 
         # Listen
-        spacebroClient.on(settings['in'].inMedia.eventName, self.on_inMedia)
+        spacebroClient.on(settings.client['in'].inMedia.eventName, self.on_inMedia)
         spacebroClient.wait(seconds=timeout)
-        spacebroClient.emit(settings.out.outMedia.eventName, {'value': 5})
+        spacebroClient.emit(settings.client.out.outMedia.eventName, {'value': 5})
         spacebroClient.wait(seconds=timeout)
 
         self.assertEqual(DotMap(self.inMediaValue).value, 5)

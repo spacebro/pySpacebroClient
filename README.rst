@@ -53,19 +53,19 @@ Usage
       'port': 3333,
       'client': {
           'name': 'python-bro'
-      },
-      'channelName': 'mychannelname',
-      'out': {
-          'outMedia': {
-              'eventName': 'outMedia',
-              'description': 'Output media',
-              'type': 'all'
+          'out': {
+              'outMedia': {
+                  'eventName': 'outMedia',
+                  'description': 'Output media',
+                  'type': 'all'
+              }
           }
       },
+      'channelName': 'mychannelname',
       'connection': 'python-bro/outMedia => node-bro/inMedia'
   }
   spacebroClient = SpacebroClient(settings)
-  spacebroClient.emit(settings.out.outMedia.eventName, {'value': 5})
+  spacebroClient.emit(settings.client.out.outMedia.eventName, {'value': 5})
   spacebroClient.wait()
 
 3. Receive a message from an app called `chokibro`
@@ -82,19 +82,19 @@ Usage
       'port': 3333,
       'client': {
           'name': 'python-bro'
-      },
-      'channelName': 'mychannelname',
-      'in': {
-          'inMedia': {
-              'eventName': 'inMedia',
-              'description': 'Input media',
-              'type': 'all'
+          'in': {
+              'inMedia': {
+                  'eventName': 'inMedia',
+                  'description': 'Input media',
+                  'type': 'all'
+              }
           }
       },
+      'channelName': 'mychannelname',
       'connection': 'chokibro/outMedia => python-bro/inMedia'
   }
   spacebroClient = SpacebroClient(settings)
-  spacebroClient.on(settings['in'].inMedia.eventName, self.on_inMedia)
+  spacebroClient.on(settings.client['in'].inMedia.eventName, self.on_inMedia)
   spacebroClient.wait()
 
 test command
